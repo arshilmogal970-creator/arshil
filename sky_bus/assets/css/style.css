@@ -1,0 +1,33 @@
+# SKY BUS ER Diagram
+
+```mermaid
+erDiagram
+    USERS ||--o{ BOOKINGS : makes
+    USERS ||--o{ NOTIFICATIONS : receives
+    USERS ||--o{ REVIEWS : writes
+    USERS ||--o{ PASSWORD_RESETS : requests
+    USERS ||--o{ CANCELLATIONS : requests
+    USERS ||--o{ COUPON_USAGE : uses
+
+    BUS_OPERATORS ||--o{ BUSES : owns
+    CITIES ||--o{ ROUTES : source
+    CITIES ||--o{ ROUTES : destination
+    ROUTES ||--o{ ROUTE_STOPS : contains
+    ROUTES ||--o{ BOARDING_POINTS : has
+    ROUTES ||--o{ DROPPING_POINTS : has
+    BUSES ||--o{ BUS_SEATS : has
+    BUSES ||--o{ SCHEDULES : runs
+    SCHEDULES ||--o{ SCHEDULE_SEATS : includes
+    SCHEDULES ||--o{ BOOKINGS : books
+    BOOKINGS ||--o{ PASSENGERS : contains
+    BOOKINGS ||--o{ BOOKING_SEATS : reserves
+    BOOKINGS ||--o{ PAYMENTS : pays
+    BOOKINGS ||--o{ CANCELLATIONS : may_have
+    BOOKINGS ||--o{ REFUNDS : refunds
+    BOOKINGS ||--o{ REVIEWS : reviews
+    BOOKINGS ||--o{ BOOKING_STATUS_HISTORY : tracks
+    COUPONS ||--o{ COUPON_USAGE : records
+```
+
+This diagram reflects the relational schema used in the `ticket_booking_db` database.
+
